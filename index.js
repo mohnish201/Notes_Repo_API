@@ -4,6 +4,7 @@ const { NotesRouter } = require("./routes/noteRoutes");
 const { UserRouter } = require("./routes/userRoutes");
 const cors = require("cors")
 const app = express();
+const port = process.env.PORT || 4000
 
 app.use(cors())
 app.use(express.json());
@@ -14,7 +15,8 @@ app.get("/", (req, res)=>{
     res.send("Hello world")
 })
 
-app.listen(4000, async()=>{
+
+app.listen(port, async()=>{
     try {
         await connection;
         console.log("Connected to DB");
