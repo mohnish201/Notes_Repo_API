@@ -6,7 +6,7 @@ const auth = async (req, res, next) => {
 
   const bLlist = await BListModel.findOne({ token });
 
-  if (!bLlist && token) {
+  if (!bLlist) {
     jwt.verify(token, "masai", (err, decoded) => {
       if (decoded) {
         req.body.userId = decoded.userId;
